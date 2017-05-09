@@ -5,19 +5,44 @@
     </div>
     <h2>To Do List</h2>
     <div>
-      <!-- <h4>Color: {{ color }}</h4> -->
       <div>
+        <button
+          class="btn btn-info"
+          @click="nameSort"
+          v-if="!taskNameSort"
+          >
+          Sort By Name
+        </button>
+        <button
+          class="btn btn-primary"
+          @click="idSort"
+          v-if="taskNameSort"
+          >
+          Sort By Id
+        </button>
         <ul>
           <li
             v-for="task in tasks"
-            :key="task.id">
+            :key="task.id"
+            >
             {{ task.name }}
+            <button
+              class="btn btn-warning"
+              @click="editTask">
+              Edit Task
+            </button>
+            <button
+              class="btn btn-danger"
+              @click="deleteTask"
+              >
+              Delete Task
+            </button>
+            <hr/>
           </li>
         </ul>
       </div>
 
     </div>
-
     <h2>Completed Tasks</h2>
     <div class="done">
       <h3>These Items Are Completed</h3>
@@ -30,17 +55,12 @@
   export default {
     data () {
       return {
-        // props: [ 'color' ],
-        // tasks: [],
-        taskIdSort: false,
+        taskIdSort: true,
         taskNameSort: false,
         }
       },
     computed: {
       tasks() {
-        console.log(4);
-        var x = this.$store.getters.tasks;
-        console.log(x);
         return this.$store.getters.tasks;
       }
     },
@@ -50,12 +70,25 @@
         sortTaskByName: 'sortTaskByName'
       }),
       idSort(){
+        console.log('sortTaskById');
+        console.log(this.taskIdSort);
+        console.log(this.taskNameSort);
         this.sortTaskById();
         this.taskIdSort = !this.taskIdSort;
+        this.taskNameSort = !this.taskNameSort;
       },
       nameSort(){
+        console.log('sortTaskByName');
+        console.log(this.taskIdSort);
+        console.log(this.taskNameSort);
         this.sortTaskByName();
         this.taskNameSort = !this.taskNameSort;
+      },
+      editTask(data){
+        console.log(data);
+      },
+      deleteTask(task){
+        console.log('delete task');
       }
     }
   }
