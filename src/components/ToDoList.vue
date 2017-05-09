@@ -5,19 +5,7 @@
     </div>
     <h2>To Do List</h2>
     <div>
-      <input
-        v-model="task.name"
-        class="form-control"
-      />
-      <button
-        class="btn btn-primary"
-        @click="">
-        Add Task
-      </button>
-    </div>
-    <div>
-      <h2>List of Tasks</h2>
-      <h3>{{ task.name }}</h3>
+      <!-- <h4>Color: {{ color }}</h4> -->
       <div>
         <ul>
           <li
@@ -41,16 +29,7 @@
   export default {
     data () {
       return {
-        task: {
-          id: null,
-          name: 'enter task name',
-          priorityQuadrant: null,
-          dateAdded: null,
-          dateDue: null,
-          completed: false,
-          recurring: false,
-          notes: ''
-        },
+        // props: [ 'color' ],
         tasks: [
           {
             id: 1,

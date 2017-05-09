@@ -1,12 +1,14 @@
 <template>
   <div class="home">
-    <h1>{{ msg }}</h1>
+
+    <app-to-do-item :msg="msg"></app-to-do-item>
     <app-to-do-list></app-to-do-list>
 
   </div>
 </template>
 
 <script>
+  import ToDoItem from './ToDoItem.vue';
   import ToDoList from './ToDoList.vue';
   export default {
     name: 'home',
@@ -16,6 +18,7 @@
       }
     },
     components: {
+      appToDoItem: ToDoItem,
       appToDoList: ToDoList
     }
   }
