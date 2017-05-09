@@ -3,7 +3,9 @@
     <input
       v-model="msg"
       class="form-control"
+      v-on:keyup="msgLength"
     />
+    <h3>Message Length: {{ msgLen }}</h3>
     <app-to-do-item :msg="msg"></app-to-do-item>
     <app-to-do-list></app-to-do-list>
 
@@ -18,11 +20,18 @@
     data () {
       return {
         msg: 'Are you ready to get to work?',
+        msgLen: null
       }
     },
     components: {
       appToDoItem: ToDoItem,
       appToDoList: ToDoList
+    },
+    methods: {
+      msgLength() {
+        console.log(this.msg.length);
+        this.msgLen = this.msg.length;
+      }
     }
   }
 </script>

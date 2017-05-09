@@ -1,6 +1,6 @@
 <template>
   <div class="toDoItem">
-    <h1>Message: {{ msg }}</h1>
+    <h1>Message: {{ msg + '4' }}</h1>
     <input
       v-model="task.name"
       class="form-control"
