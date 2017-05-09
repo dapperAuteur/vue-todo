@@ -26,37 +26,36 @@
 </template>
 
 <script>
+  import { mapActions } from 'vuex';
   export default {
     data () {
       return {
         // props: [ 'color' ],
-        tasks: [
-          {
-            id: 1,
-            name: '15 min of Khan Academy',
-            priorityQuadrant: 4,
-            dateAdded: null,
-            dateDue: null,
-            completed: false,
-            recurring: true,
-            notes: 'got 100%'
-          },
-          {
-            id: 2,
-            name: 'Go for a jog twice a day',
-            priorityQuadrant: 1,
-            dateAdded: null,
-            dateDue: null,
-            completed: false,
-            recurring: true,
-            notes: 'felt great afterwards'
-          }
-        ],
-        methods: {
-          my(){
-            console.log(this.task.name);
-          }
+        // tasks: [],
+        taskIdSort: false,
+        taskNameSort: false,
         }
+      },
+    computed: {
+      tasks() {
+        console.log(4);
+        var x = this.$store.getters.tasks;
+        console.log(x);
+        return this.$store.getters.tasks;
+      }
+    },
+    methods: {
+      ...mapActions({
+        sortTaskById: 'sortTaskById',
+        sortTaskByName: 'sortTaskByName'
+      }),
+      idSort(){
+        this.sortTaskById();
+        this.taskIdSort = !this.taskIdSort;
+      },
+      nameSort(){
+        this.sortTaskByName();
+        this.taskNameSort = !this.taskNameSort;
       }
     }
   }
