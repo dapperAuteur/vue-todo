@@ -1,6 +1,9 @@
 <template>
   <div class="home">
-
+    <input
+      v-model="msg"
+      class="form-control"
+    />
     <app-to-do-item :msg="msg"></app-to-do-item>
     <app-to-do-list></app-to-do-list>
 
