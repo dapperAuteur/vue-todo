@@ -27,17 +27,25 @@
       >
       Delete Task
     </button>
+    <app-edit-to-do-item
+      :task="task"
+      v-if="editting">
+    </app-edit-to-do-item>
   </div>
 </template>
 
 <script>
   import { mapActions } from 'vuex';
+  import EditToDoItem from './EditToDoItem.vue';
   export default {
     props: [ 'task' ],
     data () {
       return {
-
+        editting: false
       }
+    },
+    components: {
+      appEditToDoItem: EditToDoItem,
     },
     methods: {
       ...mapActions({
@@ -62,6 +70,7 @@
       editTask(){
         const order = this.task;
         console.log(order);
+        this.editting = !this.editting;
       },
       deleteTask(){
         const order = this.task;
