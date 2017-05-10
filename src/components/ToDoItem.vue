@@ -66,6 +66,7 @@
       deleteTask(){
         const order = this.task;
         console.log(order);
+        this.$store.dispatch('deleteTask', order);
       }
     }
   }

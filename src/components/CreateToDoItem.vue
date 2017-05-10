@@ -82,11 +82,7 @@
           taskRecurring: this.task.recurring,
           taskNotes: this.task.notes,
         }
-        // var t = this.$store.getters.tasks;
-        // t.push(this.task);
-        console.log(order);
         this.$store.dispatch('addTask', order);
-        console.log(this.$store.getters.tasks);
       }
     }
   }
