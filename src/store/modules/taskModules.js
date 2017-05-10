@@ -51,6 +51,9 @@ const mutations = {
       return 0;
     });
   },
+  'UPDATE_TASK' (state, task) {
+    state.task = task;
+  }
 };
 
 const actions = {
@@ -63,8 +66,8 @@ const actions = {
   initTasks: ({ commit }) => {
     commit('SET_TASKS', tasks);
   },
-  editTask: ({ commit }, order) => {
-    commit('EDIT_TASK', order);
+  updateTask: ({ commit }, order) => {
+    commit('UPDATE_TASK', order);
   },
   sortTaskById: ({ commit }) => {
     commit('SET_TASKS_BY_ID');
