@@ -6,14 +6,14 @@
       v-on:keyup="msgLength"
     />
     <h3>Message Length: {{ msgLen }}</h3>
-    <app-to-do-item :msg="msg"></app-to-do-item>
+    <app-create-to-do-item :msg="msg"></app-create-to-do-item>
     <app-to-do-list></app-to-do-list>
 
   </div>
 </template>
 
 <script>
-  import ToDoItem from './ToDoItem.vue';
+  import CreateToDoItem from './CreateToDoItem.vue';
   import ToDoList from './ToDoList.vue';
   export default {
     name: 'home',
@@ -24,7 +24,7 @@
       }
     },
     components: {
-      appToDoItem: ToDoItem,
+      appCreateToDoItem: CreateToDoItem,
       appToDoList: ToDoList
     },
     methods: {

@@ -1,83 +1,71 @@
 <template>
-  <div class="toDoItem">
-    <h1>Message: {{ msg + '4' }}</h1>
-    <div class="row">
-      <div class="col-xs-12 col-sm-6">
-        <h4>Name:<input
-          v-model="task.name"
-          class="form-control"
-        /></h4>
-        <h4>
-          <label
-            for="task.priorityQuadrant">
-            Priority
-          </label>
-          <select
-            id="priority"
-            class="form-control"
-            v-model="selectedPriority"
-            >
-            <option
-              v-for="priority in priorityQuadrant"
-              >
-              {{ priority }}
-            </option>
-          </select>
-        </h4>
-        <h4>Due Date:<input
-          v-model="task.dateDue"
-          class="form-control"
-        /></h4>
-      </div>
-      <div class="col-xs-12 col-sm-6">
-        <h4>Recurring?:<input
-          v-model="task.recurring"
-          class="form-control"
-        /></h4>
-        <h4>Notes:<input
-          v-model="task.notes"
-          class="form-control"
-        /></h4>
-      </div>
-    </div>
+  <div class="toDoItem col-sm-6 col-md-4">
+    <h3>Task Id: {{ task.id }}</h3>
+    <h3>Task Name: {{ task.name }}</h3>
+    <h3>Task PQ: {{ task.priorityQuadrant }}</h3>
+    <h3>Task Notes: {{ task.notes }}</h3>
+    <button
+      class="btn btn-info"
+      @click="toggleComplete"
+      v-if="!this.task.taskCompleted">
+      Not Completed
+    </button>
     <button
       class="btn btn-primary"
-      @click="addTask">
-      Add Task
+      @click="toggleComplete"
+      v-else>
+      Completed
     </button>
-    <h2>List of Tasks</h2>
-    <h3>{{ task.name }}</h3>
+    <button
+      class="btn btn-warning"
+      @click="editTask">
+      Edit Task
+    </button>
+    <button
+      class="btn btn-danger"
+      @click="deleteTask"
+      >
+      Delete Task
+    </button>
   </div>
 </template>
 
 <script>
+  import { mapActions } from 'vuex';
   export default {
-    props: ['msg'],
+    props: [ 'task' ],
     data () {
       return {
-        task: {
-          id: null,
-          name: 'enter task name',
-          priorityQuadrant: [1, 2, 3, 4],
-          dateAdded: null,
-          dateDue: null,
-          completed: false,
-          recurring: false,
-          notes: ''
-        },
-        priorityQuadrant: [1, 2, 3, 4],
-        selectedPriority: 4
+
       }
     },
     methods: {
-      addTask() {
-        console.log(this.selectedPriority);
-        this.task.priorityQuadrant = this.selectedPriority;
-        console.log(this.task);
-        var t = this.$store.getters.tasks;
-        console.log(t);
-        t.push(this.task);
-        console.log(t);
+      ...mapActions({
+        sortTaskById: 'sortTaskById',
+        sortTaskByName: 'sortTaskByName'
+      }),
+      idSort(){
+        this.sortTaskById();
+        this.taskNameSort = !this.taskNameSort;
+      },
+      nameSort(){
+        this.sortTaskByName();
+        this.taskNameSort = !this.taskNameSort;
+      },
+      toggleComplete(){
+        console.log(this.task.taskCompleted);
+        console.log(this.task.id);
+        this.task.taskCompleted = !this.task.taskCompleted;
+        const order = this.task;
+        console.log(this.task.taskCompleted);
+      },
+      editTask(){
+        const order = this.task;
+        console.log(order);
+      },
+      deleteTask(){
+        const order = this.task;
+        console.log(order);
       }
     }
   }

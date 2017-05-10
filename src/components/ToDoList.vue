@@ -6,7 +6,7 @@
     <h2>To Do List</h2>
     <div>
       <div>
-        <button
+        <!-- <button
           class="btn btn-info"
           @click="nameSort"
           v-if="!taskNameSort"
@@ -17,29 +17,16 @@
           class="btn btn-primary"
           @click="idSort"
           v-if="taskNameSort"
+          :key="task.id"
           >
           Sort By Id
-        </button>
-        <ul>
-          <li
-            v-for="task in tasks"
-            :key="task.id"
-            >
-            {{ task.name }}
-            <button
-              class="btn btn-warning"
-              @click="editTask">
-              Edit Task
-            </button>
-            <button
-              class="btn btn-danger"
-              @click="deleteTask"
-              >
-              Delete Task
-            </button>
-            <hr/>
-          </li>
-        </ul>
+        </button> -->
+        <app-to-do-item
+          v-for="task in tasks"
+          :task="task"
+          :key="task.id"
+          >
+        </app-to-do-item>
       </div>
 
     </div>
@@ -52,13 +39,16 @@
 
 <script>
   import { mapActions } from 'vuex';
+  import ToDoItem from './ToDoItem.vue';
   export default {
     data () {
       return {
-        taskIdSort: true,
-        taskNameSort: false,
-        }
-      },
+        taskNameSort: false
+      }
+    },
+    components: {
+      appToDoItem: ToDoItem
+    },
     computed: {
       tasks() {
         return this.$store.getters.tasks;
@@ -70,25 +60,12 @@
         sortTaskByName: 'sortTaskByName'
       }),
       idSort(){
-        console.log('sortTaskById');
-        console.log(this.taskIdSort);
-        console.log(this.taskNameSort);
         this.sortTaskById();
-        this.taskIdSort = !this.taskIdSort;
         this.taskNameSort = !this.taskNameSort;
       },
       nameSort(){
-        console.log('sortTaskByName');
-        console.log(this.taskIdSort);
-        console.log(this.taskNameSort);
         this.sortTaskByName();
         this.taskNameSort = !this.taskNameSort;
-      },
-      editTask(data){
-        console.log(data);
-      },
-      deleteTask(task){
-        console.log('delete task');
       }
     }
   }
