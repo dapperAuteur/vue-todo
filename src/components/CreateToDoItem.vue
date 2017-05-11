@@ -1,6 +1,5 @@
 <template>
   <div class="toDoItem">
-    <h1>Message: {{ msg + '4' }}</h1>
     <div class="row">
       <div class="col-xs-12 col-sm-6">
         <h4>Name:<input
@@ -52,7 +51,6 @@
 
 <script>
   export default {
-    props: ['msg'],
     data () {
       return {
         task: {
@@ -63,7 +61,8 @@
           dateDue: null,
           completed: false,
           recurring: false,
-          notes: ''
+          notes: '',
+          editting: false
         },
         priorityQuadrant: [1, 2, 3, 4],
         selectedPriority: 4
@@ -81,6 +80,7 @@
           taskCompleted: this.task.completed,
           taskRecurring: this.task.recurring,
           taskNotes: this.task.notes,
+          taskEditting: this.task.editting
         }
         this.$store.dispatch('addTask', order);
       }

@@ -1,5 +1,5 @@
 <template>
-  <div class="editToDoItem">
+  <div class="editToDoItem" v-if="editting">
     <div class="row">
       <div class="col-xs-12 col-sm-6">
         <input
@@ -53,11 +53,17 @@
         //   recurring: false,
         //   notes: ''
         // },
+        editting: true,
         priorityQuadrant: [1, 2, 3, 4],
         selectedPriority: 4
       }
     },
     methods: {
+      editTask(){
+        const order = this.task;
+        console.log(order);
+        this.editting = !this.editting;
+      },
       updateTask() {
         this.task.priorityQuadrant = this.selectedPriority;
         const order = {
@@ -69,10 +75,12 @@
           taskCompleted: this.task.completed,
           taskRecurring: this.task.recurring,
           taskNotes: this.task.notes,
+          taskEditting: this.task.editting
         }
         console.log(order);
         console.log(this.task);
         this.$store.dispatch('updateTask', order);
+        this.editting = !this.editting;
       }
     }
   }

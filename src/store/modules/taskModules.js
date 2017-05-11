@@ -11,7 +11,7 @@ const state = {
 }
 
 const mutations = {
-  'ADD_TASK' (state, { taskId, taskName, taskPriorityQuadrant, taskDateAdded, taskDateDue, taskCompleted, taskRecurring, taskNotes }) {
+  'ADD_TASK' (state, { taskId, taskName, taskPriorityQuadrant, taskDateAdded, taskDateDue, taskCompleted, taskRecurring, taskNotes, taskEditting }) {
     state.tasks.push({
       id: taskId,
       name: taskName,
@@ -20,10 +20,11 @@ const mutations = {
       dateDue: taskDateDue,
       completed: taskCompleted,
       recurring: taskRecurring,
-      notes: taskNotes
+      notes: taskNotes,
+      editting: taskEditting
     })
   },
-  'DELETE_TASK' (state, { taskId, taskName, taskPriorityQuadrant, taskDateAdded, taskDateDue, taskCompleted, taskRecurring, taskNotes }) {
+  'DELETE_TASK' (state, { taskId, taskName, taskPriorityQuadrant, taskDateAdded, taskDateDue, taskCompleted, taskRecurring, taskNotes, taskEditting }) {
     const record = state.tasks.find(element => element.id == taskId);
     state.tasks.splice(state.tasks.indexOf(record), 1);
   },
@@ -89,7 +90,8 @@ const getters = {
         dateDue: task.dateDue,
         completed: task.completed,
         recurring: task.recurring,
-        notes: task.notes
+        notes: task.notes,
+        editting: task.editting
       }
     })
   },
@@ -104,7 +106,8 @@ const getters = {
         dateDue: task.dateDue,
         completed: task.completed,
         recurring: task.recurring,
-        notes: task.notes
+        notes: task.notes,
+        editting: task.editting
       }
     })
   },
@@ -119,7 +122,8 @@ const getters = {
         dateDue: task.dateDue,
         completed: task.completed,
         recurring: task.recurring,
-        notes: task.notes
+        notes: task.notes,
+        editting: task.editting
       }
     })
   },
@@ -134,7 +138,8 @@ const getters = {
         dateDue: task.dateDue,
         completed: task.completed,
         recurring: task.recurring,
-        notes: task.notes
+        notes: task.notes,
+        editting: task.editting
       }
     })
   },
