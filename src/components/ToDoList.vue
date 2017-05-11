@@ -6,7 +6,7 @@
     <h2>To Do List</h2>
     <div>
       <div>
-        <!-- <button
+        <button
           class="btn btn-info"
           @click="nameSort"
           v-if="!taskNameSort"
@@ -20,7 +20,7 @@
           :key="task.id"
           >
           Sort By Id
-        </button> -->
+        </button>
         <app-to-do-item
           v-for="task in tasks"
           :task="task"
@@ -52,6 +52,9 @@
     computed: {
       tasks() {
         return this.$store.getters.tasks;
+      },
+      task() {
+        return this.$store.getters.task;
       }
     },
     methods: {
