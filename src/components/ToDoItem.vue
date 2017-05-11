@@ -4,10 +4,12 @@
     <h3>Task Name: {{ task.name }}</h3>
     <h3>Task PQ: {{ task.priorityQuadrant }}</h3>
     <h3>Task Notes: {{ task.notes }}</h3>
+    <h3>Task Completed: {{ task.completed }}</h3>
+    <h3>Task Recurring: {{ task.recurring }}</h3>
     <button
       class="btn btn-info"
       @click="toggleComplete"
-      v-if="!this.task.taskCompleted">
+      v-if="!this.task.completed">
       Not Completed
     </button>
     <button
@@ -47,6 +49,9 @@
     components: {
       appEditToDoItem: EditToDoItem,
     },
+    computed: {
+
+    },
     methods: {
       ...mapActions({
         sortTaskById: 'sortTaskById',
@@ -61,11 +66,8 @@
         this.taskNameSort = !this.taskNameSort;
       },
       toggleComplete(){
-        console.log(this.task.taskCompleted);
-        console.log(this.task.id);
-        this.task.taskCompleted = !this.task.taskCompleted;
+        this.task.completed = !this.task.completed;
         const order = this.task;
-        console.log(this.task.taskCompleted);
       },
       editTask(){
         const order = this.task;
