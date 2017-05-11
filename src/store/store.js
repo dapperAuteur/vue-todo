@@ -9,8 +9,13 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
+    quadrant_1: [],
+    quadrant_2: [],
+    quadrant_3: [],
+    quadrant_4: [],
     task: {},
-    tasks: []
+    tasks: [],
+    userTasks: []
   },
   modules: {
     taskModules

@@ -1,7 +1,7 @@
 export default [
   {
     id: 1,
-    name: '15 min of Khan Academy',
+    name: 'Work On Khan Academy For 15 min',
     priorityQuadrant: 4,
     dateAdded: null,
     dateDue: null,

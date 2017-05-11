@@ -5,19 +5,31 @@
     </div>
     <h2>To Do List</h2>
     <div>
-      <!-- <h4>Color: {{ color }}</h4> -->
       <div>
-        <ul>
-          <li
-            v-for="task in tasks"
-            :key="task.id">
-            {{ task.name }}
-          </li>
-        </ul>
+        <!-- <button
+          class="btn btn-info"
+          @click="nameSort"
+          v-if="!taskNameSort"
+          >
+          Sort By Name
+        </button>
+        <button
+          class="btn btn-primary"
+          @click="idSort"
+          v-if="taskNameSort"
+          :key="task.id"
+          >
+          Sort By Id
+        </button> -->
+        <app-to-do-item
+          v-for="task in tasks"
+          :task="task"
+          :key="task.id"
+          >
+        </app-to-do-item>
       </div>
 
     </div>
-
     <h2>Completed Tasks</h2>
     <div class="done">
       <h3>These Items Are Completed</h3>
@@ -27,20 +39,18 @@
 
 <script>
   import { mapActions } from 'vuex';
+  import ToDoItem from './ToDoItem.vue';
   export default {
     data () {
       return {
-        // props: [ 'color' ],
-        // tasks: [],
-        taskIdSort: false,
-        taskNameSort: false,
-        }
-      },
+        taskNameSort: false
+      }
+    },
+    components: {
+      appToDoItem: ToDoItem
+    },
     computed: {
       tasks() {
-        console.log(4);
-        var x = this.$store.getters.tasks;
-        console.log(x);
         return this.$store.getters.tasks;
       }
     },
@@ -51,7 +61,7 @@
       }),
       idSort(){
         this.sortTaskById();
-        this.taskIdSort = !this.taskIdSort;
+        this.taskNameSort = !this.taskNameSort;
       },
       nameSort(){
         this.sortTaskByName();
