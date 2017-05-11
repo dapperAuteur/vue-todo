@@ -30,10 +30,6 @@
       </div>
 
     </div>
-    <h2>Completed Tasks</h2>
-    <div class="done">
-      <h3>These Items Are Completed</h3>
-    </div>
   </div>
 </template>
 
