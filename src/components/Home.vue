@@ -2,7 +2,6 @@
   <div class="home">
     <app-create-to-do-item></app-create-to-do-item>
     <app-to-do-list></app-to-do-list>
-
   </div>
 </template>
 

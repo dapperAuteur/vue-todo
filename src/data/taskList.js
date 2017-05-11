@@ -5,8 +5,8 @@ export default [
     priorityQuadrant: 4,
     dateAdded: null,
     dateDue: null,
-    completed: false,
-    recurring: true,
+    completed: true,
+    recurring: false,
     notes: 'got 100%'
   },
   {
