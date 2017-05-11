@@ -10,13 +10,13 @@
       class="btn btn-info"
       @click="toggleComplete"
       v-if="!this.task.completed">
-      Not Completed
+      Completed
     </button>
     <button
       class="btn btn-primary"
       @click="toggleComplete"
       v-else>
-      Completed
+      Not Completed
     </button>
     <button
       class="btn btn-warning"
