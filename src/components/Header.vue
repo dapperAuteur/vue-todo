@@ -3,16 +3,45 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <router-link to="/" class="navbar-brand">Cooper Aerial</router-link>
+          <router-link
+            to="/"
+            class="navbar-brand"
+            >
+            Cooper Aerial
+          </router-link>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <router-link to="/Companies" activeClass="active" tag="li"><a>Companies</a></router-link>
-            <router-link to="/Offices" activeClass="active" tag="li"><a>Offices</a></router-link>
-            <router-link to="/Persons" activeClass="active" tag="li"><a>Persons</a></router-link>
-            <router-link to="/offices-by-company/company_id" activeClass="active" tag="li"><a>Offices By Company Id</a></router-link>
+            <router-link
+              to="/to-do-list"
+              activeClass="active"
+              tag="li"
+              >
+              <a>My To Do List</a>
+            </router-link>
+            <router-link
+              to="/Offices"
+              activeClass="active"
+              tag="li"
+              >
+              <a>Offices</a>
+            </router-link>
+            <router-link
+              to="/Persons"
+              activeClass="active"
+              tag="li"
+              >
+              <a>Persons</a>
+            </router-link>
+            <router-link
+              to="/offices-by-company/company_id"
+              activeClass="active"
+              tag="li"
+              >
+              <a>Offices By Company Id</a>
+            </router-link>
           </ul>
-          <strong class="navbar-text navbar-right">Funds: {{  }}</strong>
+          <router-link to="/login" class="navbar-text navbar-right">Login Username: {{  }}</router-link>
           <ul class="nav navbar-nav navbar-right">
             <li>
               <a href="#" @click="">End Day</a>
@@ -25,18 +54,25 @@
                   data-toggle="dropdown"
                   role="button"
                   aria-haspopup="true"
-                  aria-expanded="false">Save & Load <span class="caret"></span></a>
+                  aria-expanded="false"
+                  >
+                  Save & Load <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li>
                     <a href="#"
-                      @click="saveData">Save Data</a>
+                      @click="saveData"
+                      >
+                      Save Data</a>
                   </li>
                   <li>
                     <a href="#"
-                      @click="loadData">Load Data</a>
+                      @click="loadData"
+                      >
+                      Load Data</a>
                   </li>
                   <li>
-                    <a href="#">Something Else Here</a>
+                    <a href="#">
+                      Something Else Here</a>
                   </li>
                   <li role="separator" class="divider">
 

@@ -7,6 +7,7 @@ import Quadrant1 from '@/components/Quadrant1'
 import Quadrant2 from '@/components/Quadrant2'
 import Quadrant3 from '@/components/Quadrant3'
 import Quadrant4 from '@/components/Quadrant4'
+import UserAuth from '@/components/UserAuth'
 
 Vue.use(Router)
 
@@ -46,6 +47,11 @@ export default new Router({
       path: '/q4',
       name: 'Quadrant4',
       component: Quadrant4
+    },
+    {
+      path: '/login',
+      name: 'UserAuth',
+      component: UserAuth
     }
   ]
 })
