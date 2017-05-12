@@ -1,5 +1,5 @@
 <template>
-  <div class="toDoItem col-sm-6 col-md-4">
+  <div class="toDoItem col-md-4 col-sm-6">
     <h3>Task Id: {{ task.id }}</h3>
     <h3>Task Name: {{ task.name }}</h3>
     <h3>Task PQ: {{ task.priorityQuadrant }}</h3>
