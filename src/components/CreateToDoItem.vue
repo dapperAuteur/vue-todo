@@ -1,7 +1,7 @@
 <template>
   <div class="toDoItem">
     <div class="row">
-      <div class="col-xs-12 col-sm-6">
+      <div class="col-sm-6 col-xs-12">
         <h4>Name:<input
           v-model="task.name"
           class="form-control"
@@ -28,7 +28,7 @@
           class="form-control"
         /></h4>
       </div>
-      <div class="col-xs-12 col-sm-6">
+      <div class="col-sm-6 col-xs-12">
         <h4>Recurring?:<input
           v-model="task.recurring"
           class="form-control"

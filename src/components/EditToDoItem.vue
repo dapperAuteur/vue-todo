@@ -1,7 +1,7 @@
 <template>
   <div class="editToDoItem" v-if="editting">
     <div class="row">
-      <div class="col-xs-12 col-sm-6">
+      <div class="col-sm-6 col-xs-12">
         <input
           v-model="task.name"
           class="form-control"
