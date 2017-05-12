@@ -67,7 +67,7 @@
     },
     methods: {
       ...mapActions({
-          // fetchData: 'loadData'
+          fetchData: 'loadData'
       }),
       saveData() {
         const data = {

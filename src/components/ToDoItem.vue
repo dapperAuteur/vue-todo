@@ -75,7 +75,17 @@
         this.editting = !this.editting;
       },
       deleteTask(){
-        const order = this.task;
+        const order = {
+          taskId: this.task.id,
+          taskName: this.task.name,
+          taskPriorityQuadrant: this.task.priorityQuadrant,
+          taskDateAdded: this.task.dateAdded,
+          taskDateDue: this.task.dateDue,
+          taskCompleted: this.task.completed,
+          taskRecurring: this.task.recurring,
+          taskNotes: this.task.notes,
+          taskEditting: this.task.editting
+        };
         console.log(order);
         this.$store.dispatch('deleteTask', order);
       }
