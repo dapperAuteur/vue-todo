@@ -59,11 +59,6 @@
       }
     },
     methods: {
-      editTask(){
-        const order = this.task;
-        console.log(order);
-        this.editting = !this.editting;
-      },
       updateTask() {
         this.task.priorityQuadrant = this.selectedPriority;
         const order = {

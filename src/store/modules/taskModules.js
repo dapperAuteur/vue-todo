@@ -1,4 +1,5 @@
 import tasks from '../../data/taskList';
+// import { mapActions } from 'vuex';
 
 const state = {
   quadrant_1: [],
@@ -26,6 +27,7 @@ const mutations = {
   },
   'DELETE_TASK' (state, { taskId, taskName, taskPriorityQuadrant, taskDateAdded, taskDateDue, taskCompleted, taskRecurring, taskNotes, taskEditting }) {
     const record = state.tasks.find(element => element.id == taskId);
+    console.log(state.tasks.indexOf(record));
     state.tasks.splice(state.tasks.indexOf(record), 1);
   },
   'SET_TASK' (state, task) {
