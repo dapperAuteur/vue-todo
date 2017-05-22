@@ -13,6 +13,20 @@
     created() {
       this.$store.dispatch('initTasks');
     },
+    computed: {
+      userAuthState() {
+        console.log('userAuthState');
+        firebase.auth().onAuthStateChanged(firebaseUser => {
+          if(firebaseUser) {
+            console.log(firebaseUser);
+            this.userAuthen = true;
+          } else {
+            console.log('not logged in');
+            this.userAuthen = false;
+          }
+        })
+      }
+    },
     components: {
         appHeader: Header
       },

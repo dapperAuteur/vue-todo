@@ -7,6 +7,7 @@ export const loadData = ({ commit }) => {
       if (data) {
         const todoList = data;
         commit('SET_TASKS', todoList);
+        console.log('data loaded');
       }
     });
 };

@@ -11,7 +11,8 @@ import * as actions from './action';
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
-  // state: {
+  state: {
+    userAuthenticated: false,
   //   quadrant_1: [],
   //   quadrant_2: [],
   //   quadrant_3: [],
@@ -19,7 +20,7 @@ const store = new Vuex.Store({
   //   task: {},
   //   tasks: [],
   //   userTasks: []
-  // },
+  },
   actions,
   modules: {
     taskModules

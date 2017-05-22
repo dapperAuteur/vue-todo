@@ -110,6 +110,7 @@
           todoList: this.$store.getters.tasks,
         };
         this.$http.put('data.json', data);
+        console.log('data saved');
       },
       loadData() {
         this.fetchData();
